@@ -11,7 +11,7 @@ chrome.extension.sendRequest(request, function(response) {
 
     var title = $(PR_TITLE);
     var commits = $(COMMIT_MESSAGE);
-	var jiraUrl = response.data + '/browse/';
+    var jiraUrl = response.data + '/browse/';
     var styles = 'color:#00f; text-decoration: underline;';
     var pattern = new RegExp("([a-zA-Z][a-zA-Z0-9_]+-[1-9][0-9]*)([^.]|\.[^0-9]|\.$|$)", 'ig');
     var insert = ' <a style="' + styles + '" target="_blank" href="' + jiraUrl + '%s">%s</a> ';
@@ -22,14 +22,14 @@ chrome.extension.sendRequest(request, function(response) {
     }
 
     commits.each( function() {
-		var match = pattern.exec($(this).attr('title'));
+        var match = pattern.exec($(this).attr('title'));
 
-		if (match && match[1]) {
+        if (match && match[1]) {
             // remove ticket #
             $(this).html($(this).text().replace(match[1], ''));
             // replace it w a link
             $(insert.replace(/%s/g, match[1]) + '&nbsp;').insertBefore(this);
-		}
+        }
 
-	});
+    });
 });

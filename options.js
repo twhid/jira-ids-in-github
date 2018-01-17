@@ -1,18 +1,17 @@
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", () => {
+    const ids = ['jiraUrl', 'save', 'status'];
+    const [input, save, status] = ids.map(s => document.getElementById(s));
 
-	//Restore
-	if(localStorage["jira"]) {
-		$('#jira').val(localStorage["jira"]);
-	}
+    if (localStorage["jira"]) {
+        input.value = localStorage["jira"];
+    }
 
-	//Save 
-	$('#save_button').click(function() {
-		localStorage["jira"] = $('#jira').val();
-
-		$('#status').html("Options Saved");
-		setTimeout(function() {
-			$('#status').html('');
-		}, 3000);
-	});
+    save.addEventListener('click', () => {
+        localStorage["jira"] = input.value;
+        status.style.visibility = "visible";
+        setTimeout(() => {
+            status.style.visibility = "hidden";
+        }, 3000);
+    });
 });

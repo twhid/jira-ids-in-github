@@ -5,13 +5,16 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="options.js"></script>
 <body>
-	<h1>Jira issues in GitHub</h1>
-	<p>Your Jira URL (eg https://myaccount.jira.com)</p>
-	<input name="jira" id="jira" type="text" size="100" value="https://myaccount.jira.com"/>
-	<br>
-	<button id="save_button">Save</button>
-	<p id="status" style="background-color:yellow"></p>
-	
-	<p><a href="https://github.com/mathiasverraes/jira-issues-in-github">https://github.com/twhid/jira-issues-in-github</a></p>
+    <h1>Jira issues in GitHub</h1>
+    
+    <p>
+        Enter your Jira URL (eg https://myaccount.jira.com):
+    </p>
+    <input name="jira" id="jiraUrl" type="text" size="100" placeholder="https://myaccount.jira.com"/>
+    <p>
+        <button id="save">Save</button>
+    </p>
+    <p id="status" style="visibility: hidden; padding: 6px; background-color:#FFFFE0">SAVED!!</p>
+
 </body>
 </html>
